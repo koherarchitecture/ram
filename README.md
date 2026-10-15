@@ -35,7 +35,7 @@
 
 ---
 
-RAM reads a short piece of office writing, such as a file noting or an email, and finds every act in it: each thing somebody has to do. For each act it says ***<doer> karega*** (Hindi, *"<doer> will do it"*) when the writing names somebody who does it, or ***RAM bharose*** when it leaves the act to nobody.
+RAM (It's RAM; not Ram.) reads a short piece of office writing, such as a file noting or an email, and finds every act in it: each thing somebody has to do. For each act it says ***<doer> karega*** (Hindi, *"<doer> will do it"*) when the writing names somebody who does it, or ***RAM bharose*** when it leaves the act to nobody.
 
 ```
 $ echo "The matter has been examined and the competent authority has approved the proposal. Necessary action may be taken." | python -m ram
