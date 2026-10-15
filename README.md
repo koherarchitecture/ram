@@ -72,6 +72,7 @@ The model returns the span of the writing that does the act, or nothing. Code de
 git clone https://github.com/koherarchitecture/ram.git
 cd ram
 python3 -m venv .venv
+.venv/bin/pip install torch --index-url https://download.pytorch.org/whl/cpu   # optional: torch's CPU build, several GB smaller on Linux
 .venv/bin/pip install -r requirements.txt     # torch, transformers, spaCy and spaCy's small English model
 
 # the trained reader, 122 MB, from this release
@@ -132,7 +133,7 @@ Acts are the labelled acts the act finder finds: in `notings-gemini.jsonl` it mi
 - **On plain writing the parser alone does nearly as well.** Where each sentence says plainly who did what, the subject or *by* phrase is usually the doer. RAM is ahead on messier prose: recipients (*assigned to Shri Negi*), deciders (*submitted for orders of the Registrar*), a doer shared by joined verbs, a pronoun whose person was named earlier, and *by* phrases that are not doers (*by email*, *by speed post*).
 - **All five sets were written by models.** RAM has not been measured on notings written by people.
 - **`notings-forms.jsonl` was never blind.** It was written from forms that failed while the release was being prepared, each fixed in code or in the training rows; its full score shows only that those forms were fixed.
-- **Long writing** is checked by `tests/test_long.py`: each of the 99 test notings is placed after, and before, about 530 tokens of references that name nobody, and every act must get the same answer as when the noting is read alone (both *RAM bharose*, or one doer containing the other). 0.5 does on all 99; 0.3, the reader before it, differed on 3, where it borrowed a person from a neighbouring clause.
+- **Long writing** is checked by `tests/test_long.py`: each of the 99 test notings is placed after, and before, about 530 tokens of references that name nobody, and every act must get the same answer as when the noting is read alone (both *RAM bharose*, or one doer containing the other). 0.5 does on all 99; 0.3, the reader before it, differed on 3: on two it took the doer of a neighbouring clause, and on one it missed, read alone, a doer it found beside the longer text.
 
 **Known limits.**
 
