@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+runs/
+*.tar.gz
+.DS_Store
+._*
